@@ -78,5 +78,5 @@ function async_method(dir) {
 }
 
 
-async_method('PAM08');
-//sync('PAM08');
+//async_method('PAM08');
+sync('PAM08');

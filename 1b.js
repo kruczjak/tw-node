@@ -38,21 +38,47 @@ function task3(cb) {
 
 // loop(4);
 
-function water(n) {
-  var x = n;
-
-  var waterA = async.waterfall([
-    function (callback) {
-	task1(function() {
-    		callback(null);
-	});	
-  }, function (callback) {
-    waterA();
-  }
-
-  ], function(err, result) {
-  //err
-  });
+//function water(n) {
+//  var x = n;
+//
+//  var waterA = async.waterfall([
+//    function (callback) {
+//	task1(function() {
+//    		callback(null);
+//	});
+//  }, function (callback) {
+//    waterA();
+//  }
+//
+//  ], function(err, result) {
+//  //err
+//  });
+//}
+function loop(n) {
+    for (var i=0;i<n;i++)
+    {
+        async.waterfall([
+            function (cb) {
+                printAsync("1", function () {
+                    cb(null)
+                })
+            },
+            function (cb) {
+                printAsync("2", function () {
+                    cb(null)
+                })
+            },
+            function (cb) {
+                printAsync("3", function () {
+                    cb(null)
+                })
+            },
+            function (cb) {
+                console.log('done!');
+                cb(null)
+            },
+        ]);
+    }
 }
 
-water(4);
+loop(4);
